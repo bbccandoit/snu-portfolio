@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import CareerSection from "@/components/CareerSection";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
@@ -13,6 +14,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <CareerSection />
         <ServicesSection />
         <AboutSection />
         <ExpertiseSection />

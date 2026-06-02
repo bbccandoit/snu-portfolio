@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const navItems = [
-  { label: "Career", href: "/career" },
+  { label: "Career", href: "/#career" },
   { label: "About", href: "/#about" },
   { label: "Skills", href: "/#skills" },
   { label: "Contact", href: "/#contact" },

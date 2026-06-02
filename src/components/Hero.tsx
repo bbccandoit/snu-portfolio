@@ -28,7 +28,7 @@ export default function Hero() {
             />
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href="/career"
+                href="#career"
                 className="inline-flex items-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-[#0b0d17] transition-transform hover:scale-[1.02]"
               >
                 경력 보기

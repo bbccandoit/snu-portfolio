@@ -2,10 +2,10 @@ export type ExperienceItem = {
   id: string;
   organization: string;
   role: string;
+  roleEn: string;
   period: string;
-  description: string;
+  descriptionLines: readonly string[];
   image: string;
-  category?: string;
 };
 
 export type CareerSection = {
@@ -77,37 +77,43 @@ export const portfolio = {
     "AI-based Workforce Strategy",
     "Policy Advisory",
   ],
-  work: [
+  careerHistory: [
     {
-      id: "people-lab",
+      id: "researcher",
       organization: "서울대학교 People Lab",
-      role: "Researcher",
+      role: "연구원",
+      roleEn: "Researcher",
       period: "2026/01 – 2026/03",
-      category: "Research",
-      description:
-        "AI 기반 HR 전략 연구 프로젝트를 수행하며 조직 및 인재관리 분야의 데이터 기반 연구를 진행했습니다.",
+      descriptionLines: [
+        "AI 기반 HR 전략 연구 프로젝트를 수행하며",
+        "조직 및 인재관리 분야의 데이터 기반 연구를 진행했습니다.",
+        "HR 전략 수립 모델 설계, 조직개발 인사이트 도출,",
+        "인재관리 프레임워크 연구에 참여했습니다.",
+      ],
       image: "/images/work/people-lab.jpg",
     },
-  ],
-  taHistory: [
     {
-      id: "ta-advanced",
+      id: "ta",
       organization: "서울대학교",
-      role: "Teaching Assistant",
+      role: "조교",
+      roleEn: "Teaching Assistant",
       period: "2026/01 – 현재",
-      description:
-        "첨단융합학부·최고위과정 TA로 활동하며 교육과정 개발과 운영을 담당했습니다.",
+      descriptionLines: [
+        "첨단융합학부·최고위과정 조교(TA)로 활동하며",
+        "교육과정 개발과 운영을 담당했습니다.",
+      ],
       image: "/images/work/ta-advanced.jpg",
     },
-  ] satisfies ExperienceItem[],
-  lecturerHistory: [
     {
       id: "lecturer",
       organization: "서울대학교",
-      role: "Lecturer",
+      role: "강사",
+      roleEn: "Lecturer",
       period: "2026/03 – 현재",
-      description:
-        "진로교육과정 강사로 AI 기반 HR 전략 수립 과정 개발, 교육 콘텐츠 기획, 학습 운영을 수행합니다.",
+      descriptionLines: [
+        "진로교육과정 강사로 AI 기반 HR 전략 수립 과정 개발,",
+        "교육 콘텐츠 기획, 학습 운영을 수행합니다.",
+      ],
       image: "/images/work/lecturer.jpg",
     },
   ] satisfies ExperienceItem[],
@@ -143,17 +149,17 @@ export function getCareerSections(): CareerSection[] {
     {
       title: "연구 경력",
       titleEn: "Research",
-      items: portfolio.work,
+      items: portfolio.careerHistory.filter((item) => item.role === "연구원"),
     },
     {
-      title: "TA 이력",
+      title: "조교 이력",
       titleEn: "Teaching Assistant",
-      items: portfolio.taHistory,
+      items: portfolio.careerHistory.filter((item) => item.role === "조교"),
     },
     {
       title: "강사 이력",
       titleEn: "Lecturer",
-      items: portfolio.lecturerHistory,
+      items: portfolio.careerHistory.filter((item) => item.role === "강사"),
     },
   ];
 }
