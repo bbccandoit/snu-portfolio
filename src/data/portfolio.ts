@@ -1,3 +1,12 @@
+export type ExperienceItem = {
+  id: string;
+  organization: string;
+  role: string;
+  period: string;
+  description: string;
+  image: string;
+};
+
 export const portfolio = {
   name: "방병철",
   title: "HR STRATEGY CONSULTANT",
@@ -57,29 +66,36 @@ export const portfolio = {
       category: "Research",
       description:
         "AI 기반 HR 전략 연구 프로젝트를 수행하며 조직 및 인재관리 분야의 데이터 기반 연구를 진행했습니다.",
-      accent: "from-stone-300 to-stone-500",
+      image: "/images/work/people-lab.jpg",
     },
+  ],
+  taHistory: [
     {
       id: "ta-advanced",
       organization: "서울대학교",
       role: "Teaching Assistant",
       period: "2026/01 – 현재",
-      category: "Education",
       description:
         "첨단융합학부·최고위과정 TA로 활동하며 교육과정 개발과 운영을 담당했습니다.",
-      accent: "from-neutral-400 to-neutral-600",
+      image: "/images/work/ta-advanced.jpg",
     },
+  ] satisfies ExperienceItem[],
+  lecturerHistory: [
     {
       id: "lecturer",
       organization: "서울대학교",
-      role: "Lecturer / Teaching Assistant",
+      role: "Lecturer",
       period: "2026/03 – 현재",
-      category: "Education",
       description:
         "진로교육과정 강사로 AI 기반 HR 전략 수립 과정 개발, 교육 콘텐츠 기획, 학습 운영을 수행합니다.",
-      accent: "from-zinc-400 to-zinc-600",
+      image: "/images/work/lecturer.jpg",
     },
-  ],
+  ] satisfies ExperienceItem[],
+  aboutImages: {
+    portrait: "/images/about/profile-1.jpg",
+    collaboration: "/images/about/profile-2.jpg",
+    campus: "/images/about/campus.jpg",
+  },
   education: {
     degree: "Master's Degree",
     school: "서울대학교",

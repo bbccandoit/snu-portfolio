@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const navItems = [
   { label: "Work", href: "#work" },
+  { label: "Teaching", href: "#teaching" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
@@ -26,14 +28,25 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-10">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
         <a
           href="#"
-          className="font-serif text-lg tracking-wide text-black transition-opacity hover:opacity-60"
+          className="flex items-center gap-3 transition-opacity hover:opacity-70"
+          aria-label="서울대학교"
         >
-          B&C
+          <Image
+            src="/images/snu-logo.svg"
+            alt="서울대학교"
+            width={36}
+            height={36}
+            className="h-9 w-9"
+            priority
+          />
+          <span className="hidden text-xs font-medium tracking-wide text-black/70 sm:inline">
+            서울대학교
+          </span>
         </a>
-        <nav className="flex items-center gap-8">
+        <nav className="flex items-center gap-6 md:gap-8">
           {navItems.map((item) => (
             <a
               key={item.href}

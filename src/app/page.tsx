@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import WorkSection from "@/components/WorkSection";
+import TeachingSection from "@/components/TeachingSection";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
@@ -15,6 +16,7 @@ export default function Home() {
       <main>
         <Hero />
         <WorkSection />
+        <TeachingSection />
         <ServicesSection />
         <AboutSection />
         <ExpertiseSection />
