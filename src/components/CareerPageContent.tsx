@@ -8,15 +8,16 @@ export default function CareerPageContent() {
 
   return (
     <div className="min-h-screen bg-[#f4f5f8]">
-      <div className="gradient-mesh px-4 pb-12 pt-28 md:px-6 md:pb-16 md:pt-36">
-        <div className="mx-auto max-w-4xl">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-indigo-300">
+      <div className="hero-section relative px-4 pb-12 pt-28 md:px-6 md:pb-16 md:pt-36">
+        <div className="hero-overlay pointer-events-none absolute inset-0" />
+        <div className="relative mx-auto max-w-4xl">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-indigo-200">
             Career
           </p>
-          <h1 className="text-3xl font-bold text-white md:text-4xl">
+          <h1 className="hero-title text-3xl font-bold md:text-4xl">
             {portfolio.name}
           </h1>
-          <p className="mt-2 text-sm text-white/60 md:text-base">
+          <p className="mt-2 text-sm text-white/90 md:text-base">
             {portfolio.title}
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
@@ -24,7 +25,7 @@ export default function CareerPageContent() {
               (item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-white/60 backdrop-blur-sm"
+                  className="rounded-full border border-white/25 bg-black/30 px-4 py-1.5 text-xs text-white/90 backdrop-blur-sm"
                 >
                   {item}
                 </span>
@@ -68,7 +69,7 @@ export default function CareerPageContent() {
                         <p className="mt-1 text-sm font-medium text-indigo-500">
                           {item.organization}
                         </p>
-                        <p className="mt-3 text-sm leading-relaxed text-[#6b7280]">
+                        <p className="mt-3 break-keep text-sm leading-relaxed text-[#6b7280]">
                           {item.description}
                         </p>
                       </div>

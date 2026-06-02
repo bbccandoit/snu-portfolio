@@ -1,4 +1,5 @@
 import { portfolio } from "@/data/portfolio";
+import MultilineText from "@/components/MultilineText";
 import SectionHeading from "@/components/SectionHeading";
 
 const gradients = [
@@ -31,9 +32,10 @@ export default function ServicesSection() {
               <h3 className="text-lg font-bold text-[#0f1117]">
                 {service.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-[#6b7280]">
-                {service.description}
-              </p>
+              <MultilineText
+                lines={service.descriptionLines}
+                className="mt-3 text-sm text-[#6b7280]"
+              />
               <div
                 className={`absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br ${gradients[index]} opacity-[0.06] transition-opacity group-hover:opacity-10`}
               />

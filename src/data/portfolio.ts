@@ -15,17 +15,24 @@ export type CareerSection = {
 };
 
 export const portfolio = {
-  name: "방병철",
+  name: "Byungcheol Bang",
   title: "HR STRATEGY CONSULTANT",
-  tagline:
-    "데이터 기반 HR 전략과 사람 중심 조직 혁신으로, 실행 가능한 인재·조직 성장을 설계합니다.",
+  taglineLines: [
+    "데이터 기반 HR 전략과 사람 중심 조직 혁신으로,",
+    "실행 가능한 인재·조직 성장을 설계합니다.",
+  ],
+  profileLines: [
+    "HR 전략, 인재개발, 조직 성장 분야를 중심으로 활동하는 HR 전략 컨설턴트입니다.",
+    "서울대학교 산업인력개발학과 기반의 전문성과 AI 기반 HR 전략 연구 경험을 바탕으로",
+    "인재육성, 조직개발, 교육기획, 정책자문 프로젝트를 수행하고 있습니다.",
+    "데이터 기반 의사결정과 사람 중심 조직 혁신의 균형을 지향하며,",
+    "HR과 교육, 정책, 브랜딩을 연결하는 융합적 접근을 강점으로 합니다.",
+  ],
   contact: {
     phone: "+82 10-7697-7660",
     email: "bbc.candoit@snu.ac.kr",
     location: "Seoul, South Korea",
   },
-  profile:
-    "HR 전략, 인재개발, 조직 성장 분야를 중심으로 활동하는 HR 전략 컨설턴트입니다. 서울대학교 산업인력개발학과 기반의 전문성과 AI 기반 HR 전략 연구 경험을 바탕으로 인재육성, 조직개발, 교육기획, 정책자문 프로젝트를 수행하고 있습니다. 데이터 기반 의사결정과 사람 중심 조직 혁신의 균형을 지향하며, HR과 교육, 정책, 브랜딩을 연결하는 융합적 접근을 강점으로 합니다.",
   values: [
     "데이터 기반 HR 전략 수립",
     "사람 중심 조직 혁신",
@@ -35,18 +42,24 @@ export const portfolio = {
   services: [
     {
       title: "Strategy",
-      description:
-        "조직 목표와 인재 전략을 연결하는 HR 전략 프레임워크를 설계합니다. 데이터와 정성적 인사이트를 결합해 실행 가능한 로드맵을 제시합니다.",
+      descriptionLines: [
+        "조직 목표와 인재 전략을 연결하는 HR 전략 프레임워크를 설계합니다.",
+        "데이터와 정성적 인사이트를 결합해 실행 가능한 로드맵을 제시합니다.",
+      ],
     },
     {
       title: "Development",
-      description:
-        "인재육성과 학습 설계를 통해 조직 역량을 강화합니다. 교육과정 기획부터 운영, 성과 측정까지 End-to-End로 지원합니다.",
+      descriptionLines: [
+        "인재육성과 학습 설계를 통해 조직 역량을 강화합니다.",
+        "교육과정 기획부터 운영, 성과 측정까지 End-to-End로 지원합니다.",
+      ],
     },
     {
       title: "Analytics",
-      description:
-        "AI 기반 HR 분석과 워크포스 전략 연구를 수행합니다. 조직·인재 데이터에서 의사결정에 필요한 인사이트를 도출합니다.",
+      descriptionLines: [
+        "AI 기반 HR 분석과 워크포스 전략 연구를 수행합니다.",
+        "조직·인재 데이터에서 의사결정에 필요한 인사이트를 도출합니다.",
+      ],
     },
   ],
   skills: [
@@ -120,6 +133,10 @@ export const portfolio = {
     "첨단융합학부",
   ],
 } as const;
+
+export function getTagline(): string {
+  return portfolio.taglineLines.join(" ");
+}
 
 export function getCareerSections(): CareerSection[] {
   return [

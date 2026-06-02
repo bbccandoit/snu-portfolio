@@ -11,7 +11,7 @@ export default function AboutSection() {
         <SectionHeading
           label="About"
           title="Who I am"
-          description={`${portfolio.name} — HR 전략 컨설턴트`}
+          description={`${portfolio.name} — HR Strategy Consultant`}
         />
 
         <div className="grid items-start gap-8 lg:grid-cols-5 lg:gap-10">
@@ -54,7 +54,7 @@ export default function AboutSection() {
                 {portfolio.values.map((value) => (
                   <li
                     key={value}
-                    className="flex items-start gap-3 rounded-xl bg-[#f4f5f8] px-4 py-3 text-sm text-[#374151]"
+                    className="flex items-start gap-3 rounded-xl bg-[#f4f5f8] px-4 py-3 text-sm break-keep text-[#374151]"
                   >
                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500" />
                     {value}

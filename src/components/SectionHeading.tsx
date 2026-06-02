@@ -29,8 +29,8 @@ export default function SectionHeading({
       </h2>
       {description && (
         <p
-          className={`mt-3 max-w-xl text-sm leading-relaxed md:text-base ${
-            light ? "text-white/60" : "text-[#6b7280]"
+          className={`mt-3 max-w-xl break-keep text-sm leading-relaxed md:text-base ${
+            light ? "text-white/80" : "text-[#6b7280]"
           }`}
         >
           {description}

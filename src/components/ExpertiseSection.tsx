@@ -40,7 +40,7 @@ export default function ExpertiseSection() {
               {portfolio.skills.map((skill) => (
                 <li key={skill.name}>
                   <div className="mb-2 flex items-center justify-between gap-4">
-                    <span className="text-sm font-medium text-[#374151]">
+                    <span className="text-sm font-medium break-keep text-[#374151]">
                       {skill.name}
                     </span>
                     <span className="text-xs font-semibold text-indigo-500">
@@ -61,7 +61,7 @@ export default function ExpertiseSection() {
               {portfolio.languages.map((lang) => (
                 <li key={lang.name}>
                   <div className="mb-2 flex items-center justify-between gap-4">
-                    <span className="text-sm font-medium text-[#374151]">
+                    <span className="text-sm font-medium break-keep text-[#374151]">
                       {lang.name}
                     </span>
                     <span className="text-xs font-semibold text-indigo-500">
