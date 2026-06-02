@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 방병철 포트폴리오
 
-## Getting Started
+HR 전략 컨설턴트 방병철의 개인 포트폴리오 웹사이트입니다.
 
-First, run the development server:
+## 기술 스택
+
+- [Next.js](https://nextjs.org/) 16 (App Router)
+- [Tailwind CSS](https://tailwindcss.com/) 4
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vercel](https://vercel.com/) 배포
+
+## 로컬 실행
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+브라우저에서 [http://localhost:3000](http://localhost:3000)을 열어 확인합니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 빌드
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Vercel 배포
 
-To learn more about Next.js, take a look at the following resources:
+1. [Vercel](https://vercel.com)에 GitHub 저장소를 연결합니다.
+2. Framework Preset: **Next.js** (자동 감지)
+3. Deploy를 클릭합니다.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+또는 Vercel CLI 사용:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npx vercel
+```
 
-## Deploy on Vercel
+## 프로젝트 구조
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+├── docs/                          # 원본 포트폴리오 마크다운
+│   └── snu-Byungcheol-portfolio.md
+├── src/
+│   ├── app/                       # Next.js App Router
+│   ├── components/                # UI 컴포넌트
+│   └── data/portfolio.ts          # 포트폴리오 콘텐츠
+└── public/                        # 정적 자산
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 콘텐츠 수정
+
+포트폴리오 내용은 `src/data/portfolio.ts`에서 수정할 수 있습니다. 원본 마크다운은 `docs/snu-Byungcheol-portfolio.md`에 있습니다.
