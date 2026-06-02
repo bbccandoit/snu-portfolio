@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const navItems = [
-  { label: "Work", href: "#work" },
-  { label: "Teaching", href: "#teaching" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Career", href: "/career" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Header() {
@@ -28,33 +28,30 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
-        <a
-          href="#"
-          className="flex items-center gap-3 transition-opacity hover:opacity-70"
-          aria-label="서울대학교"
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 md:px-10 md:py-4">
+        <Link
+          href="/"
+          className="group flex items-center rounded-sm transition-opacity hover:opacity-80"
+          aria-label="서울대학교 홈"
         >
           <Image
-            src="/images/snu-logo.svg"
-            alt="서울대학교"
-            width={36}
-            height={36}
-            className="h-9 w-9"
+            src="/images/snu-logo.png"
+            alt="서울대학교 Seoul National University"
+            width={200}
+            height={48}
+            className="h-8 w-auto md:h-10"
             priority
           />
-          <span className="hidden text-xs font-medium tracking-wide text-black/70 sm:inline">
-            서울대학교
-          </span>
-        </a>
+        </Link>
         <nav className="flex items-center gap-6 md:gap-8">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               className="text-xs uppercase tracking-[0.2em] text-black/70 transition-colors hover:text-black"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>

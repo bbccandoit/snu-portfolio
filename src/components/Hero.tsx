@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { portfolio } from "@/data/portfolio";
 
 export default function Hero() {
@@ -19,6 +20,12 @@ export default function Hero() {
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-black/75 md:text-lg md:leading-relaxed">
             {portfolio.tagline}
           </p>
+          <Link
+            href="/career"
+            className="mt-8 inline-block border border-[#003876]/30 px-6 py-2.5 text-xs uppercase tracking-[0.2em] text-[#003876] transition-colors hover:bg-[#003876] hover:text-white"
+          >
+            경력 보기
+          </Link>
         </div>
 
         <div className="mx-auto mt-12 max-w-3xl md:mt-16">

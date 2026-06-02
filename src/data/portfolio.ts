@@ -5,6 +5,13 @@ export type ExperienceItem = {
   period: string;
   description: string;
   image: string;
+  category?: string;
+};
+
+export type CareerSection = {
+  title: string;
+  titleEn: string;
+  items: readonly ExperienceItem[];
 };
 
 export const portfolio = {
@@ -113,3 +120,23 @@ export const portfolio = {
     "첨단융합학부",
   ],
 } as const;
+
+export function getCareerSections(): CareerSection[] {
+  return [
+    {
+      title: "연구 경력",
+      titleEn: "Research",
+      items: portfolio.work,
+    },
+    {
+      title: "TA 이력",
+      titleEn: "Teaching Assistant",
+      items: portfolio.taHistory,
+    },
+    {
+      title: "강사 이력",
+      titleEn: "Lecturer",
+      items: portfolio.lecturerHistory,
+    },
+  ];
+}
