@@ -2,16 +2,16 @@ import { portfolio } from "@/data/portfolio";
 
 export default function AffiliationsSection() {
   return (
-    <section className="border-t border-black/5 px-6 py-20 md:px-10 md:py-24">
-      <div className="mx-auto max-w-5xl">
-        <p className="mb-12 text-center text-xs uppercase tracking-[0.35em] text-black/40">
+    <section className="px-4 py-16 md:px-6 md:py-20">
+      <div className="mx-auto max-w-6xl">
+        <p className="mb-8 text-center text-xs font-semibold uppercase tracking-[0.2em] text-indigo-500">
           Affiliations
         </p>
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           {portfolio.affiliations.map((name) => (
             <div
               key={name}
-              className="flex h-16 items-center justify-center text-center text-sm font-medium tracking-wide text-black/30 transition-colors hover:text-black/60"
+              className="card-hover card-shadow flex h-20 items-center justify-center rounded-2xl bg-white px-4 text-center text-sm font-semibold text-[#374151]"
             >
               {name}
             </div>

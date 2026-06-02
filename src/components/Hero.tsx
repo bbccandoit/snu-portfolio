@@ -1,38 +1,81 @@
+import Image from "next/image";
 import Link from "next/link";
 import { portfolio } from "@/data/portfolio";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden px-6 pb-16 pt-32 md:px-10 md:pb-24 md:pt-40">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-24 h-64 w-64 -translate-x-1/2 rounded-full bg-[#003876]/5 blur-3xl" />
+    <section className="gradient-mesh relative overflow-hidden px-4 pb-20 pt-28 md:px-6 md:pb-28 md:pt-36">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -right-20 top-20 h-72 w-72 rounded-full bg-indigo-500/20 blur-3xl" />
+        <div className="absolute -left-10 bottom-10 h-64 w-64 rounded-full bg-violet-500/20 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-4xl">
-        <div className="text-center">
-          <p className="mb-3 text-xs uppercase tracking-[0.35em] text-black/45">
-            {portfolio.title}
-          </p>
-          <h1 className="font-serif text-2xl leading-snug tracking-tight text-black sm:text-3xl md:text-4xl md:leading-snug">
-            {portfolio.name}
-          </h1>
-          <div className="mx-auto my-6 h-px w-12 bg-[#003876]/30" />
-          <p className="mx-auto max-w-2xl text-base leading-relaxed text-black/75 md:text-lg md:leading-relaxed">
-            {portfolio.tagline}
-          </p>
-          <Link
-            href="/career"
-            className="mt-8 inline-block border border-[#003876]/30 px-6 py-2.5 text-xs uppercase tracking-[0.2em] text-[#003876] transition-colors hover:bg-[#003876] hover:text-white"
-          >
-            경력 보기
-          </Link>
-        </div>
+      <div className="relative mx-auto max-w-6xl">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/70 backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              {portfolio.title}
+            </div>
+            <h1 className="text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl lg:text-5xl">
+              {portfolio.name}
+            </h1>
+            <p className="mt-4 text-base leading-relaxed text-white/65 md:text-lg">
+              {portfolio.tagline}
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/career"
+                className="inline-flex items-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-[#0b0d17] transition-transform hover:scale-[1.02]"
+              >
+                경력 보기
+              </Link>
+              <Link
+                href="#contact"
+                className="inline-flex items-center rounded-xl border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10"
+              >
+                연락하기
+              </Link>
+            </div>
+          </div>
 
-        <div className="mx-auto mt-12 max-w-3xl md:mt-16">
-          <div className="rounded-md border border-black/5 bg-[#ebe7df]/80 px-6 py-8 shadow-sm md:px-10 md:py-10">
-            <p className="text-center text-sm leading-relaxed text-black/70 md:text-base md:leading-relaxed">
+          <div className="glass-card card-hover rounded-3xl p-6 md:p-8">
+            <div className="mb-6 flex items-center gap-4">
+              <div className="relative h-16 w-16 overflow-hidden rounded-2xl ring-2 ring-white/20">
+                <Image
+                  src={portfolio.aboutImages.portrait}
+                  alt={portfolio.name}
+                  fill
+                  className="object-cover"
+                  sizes="64px"
+                  priority
+                />
+              </div>
+              <div>
+                <p className="font-semibold text-white">{portfolio.name}</p>
+                <p className="text-sm text-white/50">HR Strategy Consultant</p>
+              </div>
+            </div>
+            <p className="text-sm leading-relaxed text-white/70 md:text-base">
               {portfolio.profile}
             </p>
+            <div className="mt-6 grid grid-cols-3 gap-3">
+              {[
+                { label: "Skills", value: `${portfolio.skills.length}+` },
+                { label: "Experience", value: "3+" },
+                { label: "Languages", value: `${portfolio.languages.length}` },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-xl bg-white/5 px-3 py-3 text-center"
+                >
+                  <p className="text-lg font-bold text-white">{stat.value}</p>
+                  <p className="text-[10px] uppercase tracking-wider text-white/40">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

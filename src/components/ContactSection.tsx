@@ -1,66 +1,63 @@
 import { portfolio } from "@/data/portfolio";
+import SectionHeading from "@/components/SectionHeading";
+
+const contactItems = [
+  {
+    label: "Email",
+    value: portfolio.contact.email,
+    href: `mailto:${portfolio.contact.email}`,
+    icon: "✉",
+  },
+  {
+    label: "Phone",
+    value: portfolio.contact.phone,
+    href: `tel:${portfolio.contact.phone.replace(/\s/g, "")}`,
+    icon: "📞",
+  },
+  {
+    label: "Location",
+    value: portfolio.contact.location,
+    href: undefined,
+    icon: "📍",
+  },
+];
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="px-6 py-20 md:px-10 md:py-32">
-      <div className="mx-auto max-w-5xl">
-        <div className="grid gap-12 md:grid-cols-2 md:gap-20">
-          <div>
-            <p className="mb-8 text-xs uppercase tracking-[0.25em] text-black/40">
-              Get in touch
-            </p>
-            <div className="space-y-6">
-              <div>
-                <p className="text-xs uppercase tracking-wider text-black/40">
-                  Email
-                </p>
-                <a
-                  href={`mailto:${portfolio.contact.email}`}
-                  className="mt-1 block text-sm text-black transition-opacity hover:opacity-60"
-                >
-                  {portfolio.contact.email}
-                </a>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-wider text-black/40">
-                  Phone
-                </p>
-                <a
-                  href={`tel:${portfolio.contact.phone.replace(/\s/g, "")}`}
-                  className="mt-1 block text-sm text-black transition-opacity hover:opacity-60"
-                >
-                  {portfolio.contact.phone}
-                </a>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-wider text-black/40">
-                  Location
-                </p>
-                <p className="mt-1 text-sm text-black">
-                  {portfolio.contact.location}
-                </p>
-              </div>
-            </div>
-          </div>
+    <section id="contact" className="px-4 py-20 md:px-6 md:py-28">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeading
+          label="Contact"
+          title="연락하기"
+          description="프로젝트 문의나 협업 제안을 환영합니다."
+        />
 
-          <div>
-            <p className="mb-8 text-xs uppercase tracking-[0.25em] text-black/40">
-              Connect
-            </p>
-            <ul className="space-y-3">
-              <li>
+        <div className="grid gap-5 md:grid-cols-3">
+          {contactItems.map((item) => (
+            <div
+              key={item.label}
+              className="card-hover card-shadow rounded-2xl bg-white p-6 md:p-8"
+            >
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-xl">
+                {item.icon}
+              </div>
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#9ca3af]">
+                {item.label}
+              </p>
+              {item.href ? (
                 <a
-                  href={`mailto:${portfolio.contact.email}`}
-                  className="text-sm text-black/70 transition-colors hover:text-black"
+                  href={item.href}
+                  className="mt-2 block text-sm font-medium text-[#0f1117] transition-colors hover:text-indigo-600"
                 >
-                  Email
+                  {item.value}
                 </a>
-              </li>
-              <li>
-                <span className="text-sm text-black/70">LinkedIn</span>
-              </li>
-            </ul>
-          </div>
+              ) : (
+                <p className="mt-2 text-sm font-medium text-[#0f1117]">
+                  {item.value}
+                </p>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </section>

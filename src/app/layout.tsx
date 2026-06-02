@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-serif",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const dmSans = DM_Sans({
+const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -32,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`${cormorant.variable} ${dmSans.variable} scroll-smooth`}>
-      <body className="min-h-screen bg-[#f5f3ee] font-sans text-black antialiased">
+    <html lang="ko" className={`${plusJakarta.variable} scroll-smooth`}>
+      <body className="min-h-screen bg-[#f4f5f8] font-sans text-[#0f1117] antialiased">
         {children}
       </body>
     </html>

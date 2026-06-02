@@ -1,74 +1,74 @@
 import { portfolio } from "@/data/portfolio";
+import SectionHeading from "@/components/SectionHeading";
 
-function StarRating({ level }: { level: number }) {
+function SkillBar({ level, max = 5 }: { level: number; max?: number }) {
+  const pct = (level / max) * 100;
   return (
-    <span className="text-black/30" aria-label={`${level} out of 5`}>
-      {"★".repeat(level)}
-      {"☆".repeat(5 - level)}
-    </span>
+    <div className="skill-bar">
+      <div className="skill-bar-fill" style={{ width: `${pct}%` }} />
+    </div>
   );
 }
 
 export default function ExpertiseSection() {
-  const midpoint = Math.ceil(portfolio.expertise.length / 2);
-  const leftColumn = portfolio.expertise.slice(0, midpoint);
-  const rightColumn = portfolio.expertise.slice(midpoint);
-
   return (
-    <section className="px-6 py-20 md:px-10 md:py-32">
-      <div className="mx-auto max-w-5xl">
-        <div className="mb-12 text-center md:mb-16">
-          <h2 className="font-serif text-3xl text-black md:text-4xl">
-            Expertise
-          </h2>
+    <section id="skills" className="px-4 py-20 md:px-6 md:py-28">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeading
+          label="Expertise"
+          title="전문 역량"
+          description="HR 전략, 인재개발, 데이터 분석 분야의 핵심 역량입니다."
+        />
+
+        <div className="mb-10 flex flex-wrap gap-2">
+          {portfolio.expertise.map((item) => (
+            <span
+              key={item}
+              className="rounded-full border border-indigo-100 bg-white px-4 py-2 text-xs font-medium text-[#374151] card-shadow"
+            >
+              {item}
+            </span>
+          ))}
         </div>
 
-        <div className="grid gap-x-16 gap-y-3 md:grid-cols-2">
-          <ul className="space-y-3">
-            {leftColumn.map((item) => (
-              <li
-                key={item}
-                className="border-b border-black/5 pb-3 text-sm text-black/70"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-          <ul className="space-y-3">
-            {rightColumn.map((item) => (
-              <li
-                key={item}
-                className="border-b border-black/5 pb-3 text-sm text-black/70"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="mt-20 grid gap-12 md:grid-cols-2">
-          <div>
-            <p className="mb-6 text-xs uppercase tracking-[0.25em] text-black/40">
+        <div className="grid gap-5 md:grid-cols-2">
+          <div className="card-shadow rounded-2xl bg-white p-6 md:p-8">
+            <p className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-indigo-500">
               Core Skills
             </p>
-            <ul className="space-y-4">
+            <ul className="space-y-5">
               {portfolio.skills.map((skill) => (
-                <li key={skill.name} className="flex flex-col gap-1">
-                  <span className="text-sm text-black/70">{skill.name}</span>
-                  <StarRating level={skill.level} />
+                <li key={skill.name}>
+                  <div className="mb-2 flex items-center justify-between gap-4">
+                    <span className="text-sm font-medium text-[#374151]">
+                      {skill.name}
+                    </span>
+                    <span className="text-xs font-semibold text-indigo-500">
+                      {skill.level}/5
+                    </span>
+                  </div>
+                  <SkillBar level={skill.level} />
                 </li>
               ))}
             </ul>
           </div>
-          <div>
-            <p className="mb-6 text-xs uppercase tracking-[0.25em] text-black/40">
+
+          <div className="card-shadow rounded-2xl bg-white p-6 md:p-8">
+            <p className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-indigo-500">
               Languages
             </p>
-            <ul className="space-y-4">
+            <ul className="space-y-5">
               {portfolio.languages.map((lang) => (
-                <li key={lang.name} className="flex flex-col gap-1">
-                  <span className="text-sm text-black/70">{lang.name}</span>
-                  <StarRating level={lang.level} />
+                <li key={lang.name}>
+                  <div className="mb-2 flex items-center justify-between gap-4">
+                    <span className="text-sm font-medium text-[#374151]">
+                      {lang.name}
+                    </span>
+                    <span className="text-xs font-semibold text-indigo-500">
+                      {lang.level}/5
+                    </span>
+                  </div>
+                  <SkillBar level={lang.level} />
                 </li>
               ))}
             </ul>
